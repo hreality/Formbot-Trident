@@ -67,3 +67,5 @@ If you plan to use the USB to CAN bridge (only with M8P V1.1+) then use the foll
 Communication interface = USB to CAN bus bridge (USB (on PA11/PA12))
 CAN bus interface = (CAN bus (on PD12/PD13))
 
+After klipper backup install:
+wget -O ~/klipper/klippy/extras/gcode_shell_command.py https://raw.githubusercontent.com/th33xitus/kiauh/master/resources/gcode_shell_command.py
