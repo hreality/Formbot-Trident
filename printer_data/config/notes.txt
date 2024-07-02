@@ -1,0 +1,69 @@
+Changes:
+Mnta M8P w/CB1
+EBB2209 Canbus Toolhead Board
+Voron Tap
+BTT HDMI5 LCD
+
+Filament Used:
+GizmoDorks Color Change ABS Primary Grey/Accent Blue
+https://www.amazon.com/gp/product/B00ITZO4P0
+https://www.amazon.com/gp/product/B016996HIE
+
+Mods or Alterations:
+Klipper Backup: https://github.com/Staubgeborener/klipper-backup
+Voron 2.4/Trident TopHat: https://www.printables.com/model/571759-voron-24-trident-tophat-35mm/comments/1549099
+LED Mounts: https://www.printables.com/model/305624-led-mount-for-voron-rails/comments/1569699
+Revo Nozzle Skirts: https://www.printables.com/model/452474-revo-nozzle-skirts-for-voron-trident/comments/1584046
+Bowden/Canbus Cable Support: https://www.teamfdm.com/files/file/581-bowden-tube-guide-canbus-wire-support/
+All Skirts had mesh applied using Steve Builds tutorial (you tube).
+AngryCam: https://mods.vorondesign.com/details/RYpQW53mtem8Nj1JKqiSQ
+Voron Tap (ChaoticLab 2): https://www.amazon.com/gp/product/B0CKYTQVDS
+
+ToDo:
+Im thinking... Change out the camera hardware to resolve white balance.. get shakentune going..
+
+
+Notes:
+Flashing with camboot (katapult)
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u <myuuid>
+
+EBB2209 FW Settings:
+[mcu EBBCan]
+canbus_uuid: 923bdb8af191
+canbus_interface: can0
+
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/katapult/out/canboot.bin -u 923bdb8af191
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 923bdb8af191
+Building the micro-controller with the configuration shown below.
+
+[*] Enable extra low-level configuration options
+Micro-controller Architecture = STMicroelectronics STM32
+Processor model = STM32G0B1
+IF USE CanBoot
+Bootloader offset = 8KiB bootloader
+ELSE
+Bootloader offset = No bootloader
+Clock Reference = 8 MHz crystal
+IF USE USB
+Communication interface = USB (on PA11/PA12)
+ElSE IF USE CAN bus
+Communication interface = CAN bus (on PB0/PB1)
+(1000000) CAN bus speed
+
+Manta M8P FW Settings:
+[mcu]
+canbus_uuid: 884d11349a67
+canbus_interface: can0
+
+Building the micro-controller with the configuration shown below. (If your klipper cannot select the following configuration, please update your klipper source code)
+
+[*] Enable extra low-level configuration options
+Micro-controller Architecture = STMicroelectronics STM32
+Processor model = STM32G0B1
+Bootloader offset = 8KiB bootloader
+Clock Reference = 8 MHz crystal
+Communication interface = USB (on PA11/PA12)
+If you plan to use the USB to CAN bridge (only with M8P V1.1+) then use the following two lines instead of the above line:
+Communication interface = USB to CAN bus bridge (USB (on PA11/PA12))
+CAN bus interface = (CAN bus (on PD12/PD13))
+
