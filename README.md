@@ -5,4 +5,4 @@ This backup is provided by [klipper-backup](https://github.com/Staubgeborener/kl
 
 alterations can be located in Notes.txt and related config changes in the associated files
 
-Repo Config Backups  for Formbot Trident 250mm using Klipper
+Repo Config Backups  for Formbot Voron Trident 250mm using Klipper
