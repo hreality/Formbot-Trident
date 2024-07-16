@@ -5,5 +5,5 @@ This backup is provided by [klipper-backup](https://github.com/Staubgeborener/kl
 
 Repo Config Backups  for Formbot Voron Trident (250mm) using Klipper
 
-Alterations can be located in Notes.txt and related config changes in the associated files
+Alterations can be located in notes.txt and related config changes in the associated files
 
