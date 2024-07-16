@@ -3,4 +3,6 @@ Klipper backup script for manual or automated GitHub backups
 
 This backup is provided by [klipper-backup](https://github.com/Staubgeborener/klipper-backup).
 
- alterations can be located in Notes.txt and related config changes in the associated files
+alterations can be located in Notes.txt and related config changes in the associated files
+
+Repo Config Backups  for Formbot Trident 250mm using Klipper
