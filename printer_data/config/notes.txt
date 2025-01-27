@@ -1,4 +1,4 @@
-Changes:
+manChanges:
 Mnta M8P w/CB1
 EBB2209 Canbus Toolhead Board
 Voron Tap
@@ -24,6 +24,12 @@ Im thinking... Change out the camera hardware to resolve white balance..
 
 
 Notes:
+
+!!! Check startup gcode in prusaslicer for new installs!  It lists 'Extruder' and not 'Extruder_TEMP'
+
+**** For some reason my print profiles I seem to have to lover it .94 extrusion.  On a better day I'll need to update my rotational distance
+in klipper so 1/1 is the result.  With it being early AM I get a different result every time..
+
 So, shaketune.. didnt work because the docs said nothing about adding [shaketune] to printer.cfg (or an associated file).
 
 With KAMP you edit the cfg, like most folks Im looking for settings (true, false, etc.) but at the very top whee most people placed
@@ -33,7 +39,7 @@ After klipper backup install:
 wget -O ~/klipper/klippy/extras/gcode_shell_command.py https://raw.githubusercontent.com/th33xitus/kiauh/master/resources/gcode_shell_command.py
 
 Flashing with camboot (katapult)
-python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u <myuuid>
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 923bdb8af191
 
 EBB2209 FW Settings:
 [mcu EBBCan]
@@ -62,6 +68,9 @@ Manta M8P FW Settings:
 [mcu]
 canbus_uuid: 884d11349a67
 canbus_interface: can0
+
+
+python3 ~/katapult/scripts/flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u 884d11349a67
 
 Building the micro-controller with the configuration shown below. (If your klipper cannot select the following configuration, please update your klipper source code)
 
